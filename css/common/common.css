@@ -1,0 +1,63 @@
+body {
+  margin: 0;
+  background: #eee;
+  font-family: 'Pretendard', sans-serif;
+}
+
+.app {
+  max-width: 402px;
+  height: 774px;
+  margin: 0 auto;
+  background: white;
+}
+
+.txt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 76px;
+  position: relative;
+
+}
+
+.txt span {
+  position: absolute;
+  left: 16px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.txt>h2 {
+  font-size: 17px;
+  font-weight: 600;
+  margin: 0;
+}
+
+
+.box {
+  background-color: rgb(238, 238, 238);
+  font-size: 12px;
+  display: flex;
+  text-align: center;
+  border-radius: 30px;
+  padding: 10px 16px;
+  margin: 20px auto;
+  width: 281px;
+  height: 32px;
+}
+
+.box .item {
+  font-size: 12px;
+  display: flex;
+}
+
+.box .item>span {
+  font-size: 14px;
+}
+
+.divider {
+  width: 1px;
+  height: 14px;
+  background: #ccc;
+  margin: 0 12px;
+}
