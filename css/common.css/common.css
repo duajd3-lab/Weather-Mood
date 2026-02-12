@@ -1,12 +1,10 @@
 body {
-  max-width: 402px;
-  height: 874px;
-  margin: 0 auto;
   background: #eee;
 }
 
 .app {
-  min-height: 100vh;
+  max-width: 402px;
+  height: 874px;
   margin: 0 auto;
   background: white;
 }
