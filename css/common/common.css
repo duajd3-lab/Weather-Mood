@@ -2,10 +2,7 @@ body {
   margin:0;
   background: #eee;
   font-family: 'Pretendard', sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh
+  
 }
 
 .app {
@@ -13,7 +10,9 @@ body {
   height: 774px;
   margin: 0 auto;
   background: white;
-  flex-shrink: 0;
+  transform: translateY(5%);
+  border-radius: 20px;
+  overflow: hidden;
 }
 
 .txt {
