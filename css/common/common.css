@@ -2,13 +2,18 @@ body {
   margin: 0;
   background: #eee;
   font-family: 'Pretendard', sans-serif;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  
 }
 
 .app {
-  max-width: 402px;
+  width: 402px;
   height: 774px;
   margin: 0 auto;
   background: white;
+  flex-shrink: 0;
 }
 
 .txt {
