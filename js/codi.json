@@ -1,0 +1,57 @@
+{
+  "캐주얼": [
+    {
+      "src": "./image/codi/남자 캐주얼/가을/img2.jpg",
+      "top": "체크셔츠",
+      "bottom": "데님바지"
+    },
+    {
+      "src": "./image/codi/남자 캐주얼/가을/img.png",
+      "top": "맨투맨",
+      "bottom": "슬랙스"
+    } ,
+      "./image/codi/남자 캐주얼/가을/img3.jpg" ,
+      "./image/codi/남자 캐주얼/가을/img4.png" ,
+      "./image/codi/남자 캐주얼/가을/img5.jpg",
+      "./image/codi/남자 캐주얼/가을/img6.png",
+      "./image/codi/남자 캐주얼/가을/img7.jpg",
+      "./image/codi/남자 캐주얼/가을/img8.jpg"
+  ],
+  "스트릿": [
+    "./image/codi/남자 스트릿/가을/img.jpg" ,
+      "./image/codi/남자 스트릿/가을/img2.jpg" ,
+      "./image/codi/남자 스트릿/가을/img3.jpg" ,
+      "./image/codi/남자 스트릿/가을/img4.jpg" ,
+      "./image/codi/남자 스트릿/가을/img5.jpg",
+      "./image/codi/남자 스트릿/가을/img6.jpg"
+  ],
+  "모던": [
+    "./image/codi/남자 모던/가을/img.jpg" ,
+      "./image/codi/남자 모던/가을/img2.jpg" ,
+      "./image/codi/남자 모던/가을/img3.jpg" ,
+      "./image/codi/남자 모던/가을/img4.jpg" ,
+      "./image/codi/남자 모던/가을/img5.jpg",
+      "./image/codi/남자 모던/가을/img6.jpg"
+    
+  ],
+  "로맨틱": [
+    "./image/codi/남자 로맨틱/가을/img1.jpg" ,
+      "./image/codi/남자 로맨틱/가을/img2.jpg" ,
+      "./image/codi/남자 로맨틱/가을/img3.jpg" ,
+      "./image/codi/남자 로맨틱/가을/img4.jpg" ,
+      "./image/codi/남자 로맨틱/가을/img5.jpg",
+      "./image/codi/남자 로맨틱/가을/img6.jpg"
+    
+  ],
+  "미니멀": [
+    "./image/codi/남자 미니멀/가을/img1.jpg" ,
+      "./image/codi/남자 미니멀/가을/img2.jpg" ,
+      "./image/codi/남자 미니멀/가을/img3.jpg" ,
+      "./image/codi/남자 미니멀/가을/img4.jpg" ,
+      "./image/codi/남자 미니멀/가을/img5.jpg",
+      "./image/codi/남자 미니멀/가을/img6.jpg"
+    
+    
+    
+  ]
+}
