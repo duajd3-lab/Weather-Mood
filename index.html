@@ -5,35 +5,100 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=settings" />
 </head>
 <body>
     <article class="app">
-      <section>
-        <div class="navBar">
-            <p><img src="" alt=""><span>날씨</span></p>
-            <p><img src="" alt=""><span>코디</span></p>
-            <p><img src="" alt=""><span>오늘의 무드</span></p>
-            <p><img src="" alt=""><span>보관함</span></p>
-        </div>
-
-      </section>
-      <section>
-        <div class="mainCurrentWeather">
-            <h1>5°</h1>
+      <article class="main" >
+        <!-- =============================메인 현재날씨===================== -->
+        <section class="mainHeader">
+          <div class="mainCurrentWeather">
+            <h3>5°</h3>
             <p><b>비</b> | <b>체감 3˚</b></p>
             <p>어제보다 3° 더 낮아요</p>
-        </div>
-      </section>
+          </div>
+          <div class="mainSetting">
+            <span class="material-symbols-outlined">
+                settings
+            </span>
+          </div>
+        </section>
+        
+        <!-- ============================중간컨텐츠========================== -->
+        <section>
+          <div class="contents">
+            <p class="weather">
+              <img src="./image/index/weather/rain_cloud.png" class="cloud">
+              <div class="rain_drop-container"></div>
+              
+            </p>
+            <p class="charcter"><img src="./image/index/누끼최종/Nardy_5-8.png" alt=""></p>
+            <p class="item"><img src="./image/index/item/item_rain.png" alt=""><span>비가 옵니다.<br> 우산을 챙기세요!</span></p>
+          </div>
+        </section>
 
+        <script>
+          const container=document.querySelector('.rain_drop-container')
 
+          for(let i=0; i<5; i++){/* 9번 반복 */
+            const drop=document.createElement('img');/* img태그 생성하는걸 drop으로 정의 */
+            drop.setAttribute('src','./image/index/weather/rain_drop.png')/* drop으로 생성한 img태그의 src값 삽입 */
+            drop.classList.add('drop');/* drop으로 생성한 img태그에 class='drop'추가 */
 
+            drop.style.width='20px'
+            drop.style.left=(i*9)+'%';
+            drop.style.animationDuration = 1.5 + Math.random()*0.2 + 's';
+            drop.style.animationDelay = Math.random()*2 + 's';
 
+            container.append(drop)/* '.rain_drop-container'의 맨앞에 img태그 생성 */
+          }
 
+        </script>
+        
+        <!-- ===========================하단 네비바=========================== -->
+        <section>
+          <div class="navBar">
+              <p><img src="./image/icon/weather.svg" alt=""><span>날씨</span></p>
+              <p><img src="./image/icon/look.svg" alt=""><span>코디</span></p>
+              <p><img src="./image/icon/mood.svg" alt=""><span>오늘의 무드</span></p>
+              <p><img src="./image/icon/Favorites.svg" alt=""><span>보관함</span></p>
+          </div>
+        </section>
+      </article>
+      
+      <!-- ==============================처음에만 성별 선택=========================== -->
+      <article class="onboarding"style="display:none" >
+        <section>
+          <div>
+            <b>보고 싶은 캐릭터의<br> 성별을 알려주세요!</b>
+            <p>성별을 바탕을 기본 코디가 추천됩니다.</p>
+            <div class="genderSelect">
+              <label class="genderOption">
+                <input type="radio" name="onboardingGender" value="m" >
+                <span>남성</span>
+              </label>
+              <label class="genderOption">
+                <input type="radio" name="onboardingGender" value="w" >
+                <span>여성</span>
+              </label>
+            </div>
+          </div>
+          <button>확인</button>
+        </section>
 
-      <section class="img">
-        <img src="./image/Rectangle 36.jpg" alt="">
-
-      </section>
+        <script>
+          const el_input=document.querySelectorAll('.genderOption input')
+          const el_button=document.querySelector('.onboarding button')
+          
+          el_input.forEach(function(ee,i){
+            ee.addEventListener('change',function(){
+              if(ee.checked){
+                el_button.classList.add('active')
+              }
+            })
+          })
+        </script>
+      </article> 
     </article>
     
     
