@@ -9,10 +9,11 @@ body {
 }
 
 .app {
-  max-width: 402px;
+  width: 402px;
   height: 774px;
   margin: 0 auto;
   background: white;
+  flex-shrink: 0;
 }
 
 .txt {

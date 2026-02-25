@@ -1,1 +1,204 @@
-@import url('./common.css/common.css');
+@import url('./common/common.css');
+@import url('./common/reset.css');
+
+.app {
+    background: linear-gradient(to bottom, #CFFFF1 0%, #00CE93 77%, #12A77C 100%);
+}
+
+
+
+
+/* ======================= 시간 제목 ======================= */
+
+.weather-title1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px 5px;
+}
+
+.weather-title1>p {
+    font-size: 14px;
+}
+
+.weather-title1>p::before {
+    content: 'schedule';
+    font-family: "material symbols outlined";
+    font-size: 14px;
+    padding-right: 3px;
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+.weather-title1>a {
+    font-weight: normal;
+    font-size: 12px;
+}
+
+.weather-title1>a::after {
+    content: 'arrow_forward_ios';
+    font-family: "material symbols outlined";
+    font-size: 12px;
+    font-weight: normal;
+    display: inline-block;
+    vertical-align: middle;
+    padding-left: 3px;
+}
+
+
+
+
+
+
+
+/* ======================= 시간 날씨 ======================= */
+
+.weather-hour {
+    margin: 0 auto;
+    padding: 20px 14px;
+    width: 90%;
+    height: 125px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.weather-hour .material-symbols-outlined {
+    font-size: 30px;
+}
+
+.weather-hour>ul {
+    margin: 0 auto;
+}
+
+.weather-hour>ul>li {
+    padding-top: 4px;
+}
+
+.weather-hour>ul>li:nth-of-type(1) {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.weather-hour>ul>li:nth-of-type(2) {
+    font-size: 10px;
+
+}
+
+.weather-hour>ul>li:nth-of-type(3) {
+    font-size: 11px;
+
+}
+
+
+
+
+
+
+
+/* ======================= 주간 제목 ======================= */
+
+.weather-title2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 30px 5px;
+}
+
+.weather-title2>p {
+    font-size: 14px;
+}
+
+.weather-title2>p::before {
+    content: 'calendar_today';
+    font-family: "material symbols outlined";
+    font-size: 14px;
+    padding-right: 3px;
+    display: inline-block;
+    vertical-align: text-top;
+}
+
+
+
+
+
+
+
+/* ======================= 주간 날씨 ======================= */
+
+.weather-week {
+    margin: 0 auto;
+    padding: 0 30px;
+    width: 90%;
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    border-radius: 20px;
+}
+
+.weather-week>ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 0;
+}
+
+.weather-week>ul>li>b {
+    font-size: 15px;
+    text-align: left;
+    font-weight: normal;
+    text-align: center;
+}
+
+.weather-week .week>li>b {
+    padding-right: 12px;
+    font-size: 15px;
+    text-align: center;
+    font-weight: normal;
+}
+
+.weather-week>ul>li>small {
+    font-size: 10px;
+}
+
+.weather-week .week>li>small {
+    font-size: 10px;
+}
+
+
+.weather-week .UPDOWN {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.weather-week .UPDOWN>p:nth-of-type(1) {
+    padding: 5px;
+}
+
+.weather-week .UPDOWN>p:nth-of-type(3) {
+    padding: 5px;
+}
+
+.weather-week .temp {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    width: 56px;
+    height: 5px;
+    border-radius: 50px;
+    background: #00ccff;
+    background: linear-gradient(90deg, rgba(21, 226, 237, 1) 0%, rgba(255, 255, 255, 1) 31%);
+}
+
+
+
+
+
+
