@@ -2,6 +2,10 @@ body {
   margin: 0;
   background: #eee;
   font-family: 'Pretendard', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh
 }
 
 .app {
@@ -34,7 +38,7 @@ body {
 }
 
 
-.box {
+.weatherBar {
   background-color: rgb(238, 238, 238);
   font-size: 12px;
   display: flex;
@@ -44,15 +48,18 @@ body {
   margin: 20px auto;
   width: 281px;
   height: 32px;
+  justify-content: center;
 }
 
-.box .item {
+.weatherBar .weatherBarIcon {
   font-size: 12px;
   display: flex;
 }
 
-.box .item>span {
+.weatherBar .weatherBarIcon >span {
   font-size: 14px;
+  margin-right:4px;
+line-height: 1.1;
 
 }
 

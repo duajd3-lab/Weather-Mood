@@ -7,6 +7,7 @@
   <title>Document</title>
   <link rel="stylesheet" href="./css/codi.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" as="style" crossorigin
     href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
 
@@ -17,6 +18,7 @@
 
 
   <article class="app">
+
     <div class="txt">
       <span class="material-symbols-outlined">
         arrow_back
@@ -24,19 +26,384 @@
       <h2>스타일별 날씨 코디</h2>
     </div>
 
-    <div class="box">
-      <div class="item">
-        <span class="material-symbols-outlined">
+    <!-- 날씨 상단바 -->
+    <div class="weatherBar">
+      <div class="weatherBarIcon">
+        <span class="material-symbols-outlined" id="weatherIcon">
           clear_day
         </span>
-        <p>맑음</p>
+        <p id="weatherState">맑음</p>
         <div class="divider"></div>
       </div>
-      <p>현재 기온 3°</p>
+
+      <p id="currentTemp">현재 기온 --°</p>
       <div class="divider"></div>
-      <p>최저 -3° / 최고 5°</p>
+      <p id="minMaxTemp">최저 --° / 최고 --°</p>
+
+
     </div>
+
+
+    <!-- 코디 스타일 5가지 -->
+    <div class="btn">
+      <p class="active">캐주얼</p>
+      <p>스트릿</p>
+      <p>모던</p>
+      <p>로맨틱</p>
+      <p>미니멀</p>
+    </div>
+
+    <!-- 코디 사진 -->
+    <div class="codi">
+      <p><img src="./image/codi/남자 캐주얼/가을/img2.jpg" alt=""></p>
+      <p><img src="./image/codi/남자 캐주얼/가을/img.png" alt=""></p>
+      <p><img src="./image/codi/남자 캐주얼/가을/img3.jpg" alt=""></p>
+      <p><img src="./image/codi/남자 캐주얼/가을/img4.png" alt=""></p>
+      <p><img src="./image/codi/남자 캐주얼/가을/img5.jpg" alt=""></p>
+      <p><img src="./image/codi/남자 캐주얼/가을/img6.png" alt=""></p>
+      
+    </div>
+
   </article>
+
+  <!-- 배경 오버레이 -->
+  <div class="overlay"></div>
+
+  <!-- 코디 사진 팝업창 -->
+  <aside class="modal">
+    <img src="./image/codi/남자 캐주얼/가을/img2.jpg" alt="">
+    <div class="title">
+      <span>
+
+        <button class="star-btn"></button>
+      </span>
+      <p>현재 기온과 어울리는 캐주얼 코디</p>
+    </div>
+    <p>상의: 체크셔츠</p>
+    <p>하의: 데님바지</p>
+
+    <!-- 링크 버튼+닫기 -->
+    <div class="btn-area">
+      <a href="https://kr.pinterest.com/">
+        <img src="./image/codi/pin_1 1.svg" alt="">
+        코디 더보기
+      </a>
+      <button class="close">닫기</button>
+    </div>
+  </aside>
+
+
+  <script>
+    const el_Btn = document.querySelectorAll('.btn p');
+    const el_Img = document.querySelector('.codi');
+    const images = document.querySelectorAll('.codi img');
+    const modal = document.querySelector('.modal');
+    const modalImg = document.querySelector('.modal img');
+    const overlay = document.querySelector('.overlay');
+    const closeBtn = document.querySelector('.close');
+    const starBtn = document.querySelector('.star-btn');
+
+    let imgData = null;
+
+    // JSON 불러오기
+    let codiImg = async function () {
+      let res = await fetch('./js/codi.json');
+      imgData = await res.json();
+
+
+      // 코디 스타일 5가지 클릭이벤트 
+      el_Btn.forEach(function (btn, k) {
+
+        btn.addEventListener('click', function () {
+
+          // 배경색 버튼 active 처리
+          el_Btn.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          let tab = btn.innerText;
+          el_Img.innerHTML = '';
+
+          imgData[tab].forEach(function (src) {
+            el_Img.innerHTML += `<p><img src="${src}" alt=""></p>`
+          });
+
+        });
+
+      });
+
+
+      const aside = document.querySelector('aside');
+
+      // 이미지 클릭 (오버레이, 팝업)
+      el_Img.addEventListener('click', function (e) {
+
+        if (e.target.tagName === 'IMG') {
+          modalImg.src = e.target.src;
+
+          
+
+          overlay.classList.add('active');
+          modal.classList.add('active');
+        }
+
+
+      });
+
+      // 닫기 버튼
+      closeBtn.addEventListener('click', closeModal);
+      overlay.addEventListener('click', closeModal);
+
+      function closeModal() {
+        overlay.classList.remove('active');
+        modal.classList.remove('active');
+      }
+    }
+
+    // ======= 별표 스크랩 ==========
+    // 초기 상태: 빈 별
+    starBtn.innerHTML = `<img src="./image/codi/Vector2.svg" alt="star empty">`;
+
+
+    // 별 초기화 함수
+    function resetStar() {
+      starBtn.classList.remove('active');
+      starBtn.innerHTML = `<img src="./image/codi/Vector2.svg" alt="star empty">`;
+    }
+
+    // 초기 상태 세팅
+    resetStar();
+
+    starBtn.addEventListener('click', function () {
+      this.classList.toggle('active');
+
+      if (this.classList.contains('active')) {
+        // 클릭 → 채워진 별
+        this.innerHTML = `<img src="./image/codi/Vector.svg" alt="star filled">`;
+      } else {
+        // 클릭 → 빈 별
+        this.innerHTML = `<img src="./image/codi/Vector2.svg" alt="star empty">`;
+      }
+    });
+
+    // 모달 열 때 별 초기화
+    el_Img.addEventListener('click', function (e) {
+      if (e.target.tagName === 'IMG') {
+        modalImg.src = e.target.src;
+
+        overlay.classList.add('active');
+        modal.classList.add('active');
+
+        // 모달 열릴 때 별 초기화
+        resetStar();
+      }
+    });
+
+    // 모달 닫기
+    function closeModal() {
+      overlay.classList.remove('active');
+      modal.classList.remove('active');
+    }
+
+    closeBtn.addEventListener('click', closeModal);
+    overlay.addEventListener('click', closeModal);
+
+
+    codiImg();
+
+
+  </script>
+
+
+
+
+<!-- <script>
+  async function getWeatherAll() {
+
+      const serviceKey = "wdHUMVHHQP8PTCqieskq57%2Fq1PuW0Mw5VDJu1NscK56NMphWzBjzgYA6ow8DcmR5zs0pyITnyXqMWfUKyBdSCg%3D%3D";
+
+      const now = new Date();
+
+      /* =========================
+         1️⃣ 현재 기온 (초단기실황)
+      ========================== */
+
+      const ncstTime = new Date();
+      ncstTime.setMinutes(ncstTime.getMinutes() - 40);
+
+      const yyyy = ncstTime.getFullYear();
+      const mm = String(ncstTime.getMonth() + 1).padStart(2, '0');
+      const dd = String(ncstTime.getDate()).padStart(2, '0');
+      const hh = String(ncstTime.getHours()).padStart(2, '0') + "00";
+
+      const base_date_ncst = `${yyyy}${mm}${dd}`;
+      const base_time_ncst = hh;
+
+      const ncstUrl =
+        `https://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtNcst?serviceKey=${serviceKey}&pageNo=1&numOfRows=1000&dataType=JSON&base_date=${base_date_ncst}&base_time=${base_time_ncst}&nx=61&ny=131`;
+
+      const ncstRes = await fetch(ncstUrl);
+      const ncstData = await ncstRes.json();
+      const ncstItems = ncstData.response.body.items.item;
+
+      const temp = ncstItems.find(i => i.category === "T1H")?.obsrValue;
+      const pty = ncstItems.find(i => i.category === "PTY")?.obsrValue;
+
+
+      /* =========================
+         2️⃣ 최저·최고 (동네예보)
+      ========================== */
+
+      const base_date_fcst = `${yyyy}${mm}${dd}`;
+      const base_time_fcst = "0500"; // 안전한 발표시간
+
+      const fcstUrl =
+        `https://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=${serviceKey}&pageNo=1&numOfRows=1000&dataType=JSON&base_date=${base_date_fcst}&base_time=${base_time_fcst}&nx=61&ny=131`;
+
+      const fcstRes = await fetch(fcstUrl);
+      const fcstData = await fcstRes.json();
+      const fcstItems = fcstData.response.body.items.item;
+
+      const minTemp = fcstItems.find(i => i.category === "TMN")?.fcstValue;
+      const maxTemp = fcstItems.find(i => i.category === "TMX")?.fcstValue;
+
+
+      /* =========================
+         3️⃣ 날씨 텍스트 처리
+      ========================== */
+
+      let skyText = "맑음";
+
+      if (pty == 1) skyText = "비";
+      else if (pty == 2) skyText = "비/눈";
+      else if (pty == 3) skyText = "눈";
+      else if (pty == 4) skyText = "소나기";
+
+
+      /* =========================
+         4️⃣ 화면 출력
+      ========================== */
+
+      document.getElementById("currentTemp").innerText =
+        `현재 ${temp}°`;
+
+      document.getElementById("minMaxTemp").innerText =
+        `최저 ${minTemp}° / 최고 ${maxTemp}°`;
+
+      document.getElementById("weatherState").innerText =
+        skyText;
+    }
+
+    getWeatherAll();
+  </script> -->
+
+
+
+  
+
+  <!-- 날씨 api -->
+  <script>
+    const serviceKey = "wdHUMVHHQP8PTCqieskq57%2Fq1PuW0Mw5VDJu1NscK56NMphWzBjzgYA6ow8DcmR5zs0pyITnyXqMWfUKyBdSCg%3D%3D";
+    const nx = 61;
+    const ny = 131;
+
+    let weatherInterval = null;
+    let isLoading = false;
+
+    async function getWeatherAll() {
+      if (isLoading) return; // 중복 실행 방지
+      isLoading = true;
+
+      try {
+        const now = new Date();
+        const ncstTime = new Date();
+        ncstTime.setMinutes(ncstTime.getMinutes() - 40);
+
+        const yyyy = ncstTime.getFullYear();
+        const mm = String(ncstTime.getMonth() + 1).padStart(2, '0');
+        const dd = String(ncstTime.getDate()).padStart(2, '0');
+        const hh = String(ncstTime.getHours()).padStart(2, '0') + "00";
+
+        const base_date = `${yyyy}${mm}${dd}`;
+        const base_time_ncst = hh;
+        const base_time_fcst = "0500";
+
+        const ncstUrl =
+          `https://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtNcst?serviceKey=${serviceKey}&pageNo=1&numOfRows=1000&dataType=JSON&base_date=${base_date}&base_time=${base_time_ncst}&nx=${nx}&ny=${ny}`;
+
+        const fcstUrl =
+          `https://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=${serviceKey}&pageNo=1&numOfRows=1000&dataType=JSON&base_date=${base_date}&base_time=${base_time_fcst}&nx=${nx}&ny=${ny}`;
+
+        const [ncstRes, fcstRes] = await Promise.all([
+          fetch(ncstUrl),
+          fetch(fcstUrl)
+        ]);
+
+        const ncstData = await ncstRes.json();
+        const fcstData = await fcstRes.json();
+
+        const ncstItems = ncstData.response.body.items.item;
+        const fcstItems = fcstData.response.body.items.item;
+
+        const temp = ncstItems.find(i => i.category === "T1H")?.obsrValue;
+        const pty = ncstItems.find(i => i.category === "PTY")?.obsrValue;
+        const sky = fcstItems.find(i => i.category === "SKY")?.fcstValue;
+
+        const minTemp = fcstItems.find(i => i.category === "TMN")?.fcstValue;
+        const maxTemp = fcstItems.find(i => i.category === "TMX")?.fcstValue;
+
+        let skyText = "맑음";
+        let iconText = "wb_sunny";
+
+        if (pty == 1) { skyText = "비"; iconText = "rainy"; }
+        else if (pty == 2) { skyText = "비/눈"; iconText = "rainy"; }
+        else if (pty == 3) { skyText = "눈"; iconText = "ac_unit"; }
+        else if (pty == 4) { skyText = "소나기"; iconText = "thunderstorm"; }
+        else {
+          if (sky == 1) { skyText = "맑음"; iconText = "wb_sunny"; }
+          else if (sky == 3) { skyText = "구름많음"; iconText = "cloudy"; }
+          else if (sky == 4) { skyText = "흐림"; iconText = "cloud"; }
+        }
+
+        // 요소가 존재하면 업데이트
+        const currentTempEl = document.getElementById("currentTemp");
+        if (currentTempEl) currentTempEl.innerText = `현재 ${temp}°`;
+
+        const minMaxTempEl = document.getElementById("minMaxTemp");
+        if (minMaxTempEl) minMaxTempEl.innerText = `최저 ${minTemp}° / 최고 ${maxTemp}°`;
+
+        const weatherStateEl = document.getElementById("weatherState");
+        if (weatherStateEl) weatherStateEl.innerText = skyText;
+
+        const weatherIconEl = document.getElementById("weatherIcon");
+        if (weatherIconEl) weatherIconEl.innerText = iconText;
+
+        const updateEl = document.getElementById("updateTime");
+        if (updateEl) updateEl.innerText = `업데이트: ${new Date().toLocaleTimeString()}`;
+
+      } catch (err) {
+        console.error("날씨 불러오기 실패:", err);
+      }
+
+      isLoading = false;
+    }
+
+    // 10분 자동 갱신
+    function startWeatherAutoUpdate() {
+      getWeatherAll(); // 최초 실행
+      weatherInterval = setInterval(() => getWeatherAll(), 600000);
+    }
+
+    // 탭 비활성 시 정지
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) {
+        clearInterval(weatherInterval);
+      } else {
+        startWeatherAutoUpdate();
+      }
+    });
+
+    startWeatherAutoUpdate();
+  </script>
 
 
 

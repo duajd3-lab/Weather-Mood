@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/mood.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+
+
+<body>
+
+    <article class="app">
+
+        <div class="txt">
+            <span class="material-symbols-outlined">
+                arrow_back
+            </span>
+            <h2>오늘의 무드</h2>
+        </div>
+
+        <!-- 날씨 상단바 -->
+        <div class="weatherBar">
+            <div class="weatherBarIcon">
+                <span class="material-symbols-outlined" id="weatherIcon">
+                    clear_day
+                </span>
+                <p id="weatherState">맑음</p>
+                <div class="divider"></div>
+            </div>
+            <p id="currentTemp">현재 기온 --°</p>
+            <div class="divider"></div>
+            <p id="minMaxTemp">최저 --° / 최고 --°</p>
+        </div>
+
+        <!-- 음악 추천 (Lp) -->
+        <div class="title">
+            <p>음악 추천</p>
+        </div>
+
+        <div class="playlist">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+
+                    <div class="swiper-slide">
+                        <div class="playlist-box">
+                            <img src="./image/mood/Rectangle 173.png" alt="">
+                            <img class="lp" src="./image/mood/LP_bg 1.png" alt="">
+                            <div class="lp-txt">
+                                <p>비 오는 날 들어야 되는 플리</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="playlist-box">
+                            <img src="./image/mood/Rectangle 173.png" alt="">
+                            <img class="lp" src="./image/mood/LP_bg 1.png" alt="">
+                            <div class="lp-txt">
+                                <p>비 오는 날 들어야 되는 플리</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="playlist-box">
+                            <img src="./image/mood/Rectangle 173.png" alt="">
+                            <img class="lp" src="./image/mood/LP_bg 1.png" alt="">
+                            <div class="lp-txt">
+                                <p>비 오는 날 들어야 되는 플리</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="playlist-box">
+                            <img src="./image/mood/Rectangle 173.png" alt="">
+                            <img class="lp" src="./image/mood/LP_bg 1.png" alt="">
+                            <div class="lp-txt">
+                                <p>비 오는 날 들어야 되는 플리</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- <div class="swiper-pagination"></div> -->
+            </div>
+        </div>
+
+        <!-- 야외활동 -->
+        <div class="title2">
+            <p class="section-title">야외활동 추천</p>
+
+            <div class="activity">
+                <div class="activity-card">
+                    <img src="./image/mood/run.svg" alt="달리기 아이콘">
+                    <div class="activity-text">
+                        <div class="ex">
+                            <h4>달리기</h4>
+                            <p class="location">넓은 트랙, 평지, 산책로</p>
+                        </div>
+                        <p class="desc">야외에서 런닝하기 딱 좋은 날씨에요!</p>
+                    </div>
+                </div>
+                <div class="activity-card">
+                    <img src="./image/mood/run.svg" alt="달리기 아이콘">
+                    <div class="activity-text">
+                        <div class="ex">
+                            <h4>달리기</h4>
+                            <p class="location">넓은 트랙, 평지, 산책로</p>
+                        </div>
+                        <p class="desc">야외에서 런닝하기 딱 좋은 날씨에요!</p>
+                    </div>
+                </div>
+                <div class="activity-card">
+                    <img src="./image/mood/run.svg" alt="달리기 아이콘">
+                    <div class="activity-text">
+                        <div class="ex">
+                            <h4>달리기</h4>
+                            <p class="location">넓은 트랙, 평지, 산책로</p>
+                        </div>
+                        <p class="desc">야외에서 런닝하기 딱 좋은 날씨에요!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </article>
+
+
+    <!-- 배경 오버레이 -->
+    <div class="overlay"></div>
+
+    <!-- ==========  플레이리스트 팝업창 ============ -->
+    <aside class="modal">
+        <img class="modal-main-img" src="./image/mood/playlist.png" alt="">
+        <div class="popup">
+            <span>
+                <button class="star-btn"></button>
+            </span>
+            <p>비 오는 날 들어야 되는 플리</p>
+        </div>
+
+        <div class="modal-list">
+            <p>소나기 - 이클립스 (ECLIPSE)</p>
+            <p>비가 그치면 - Hoody (후디)</p>
+            <p>우산 (Feat. 윤하) - 에픽하이</p>
+            <p>비와 당신 - 이무진</p>
+            <p>비도 오고 그래서 (Feat. 신용재)- 헤이즈 (Heize)</p>
+            <p>안개 - ATEEZ (에이티즈)</p>
+            <p>Walking In The Rain - 챈슬러, 윤하 (YOUNHA)</p>
+            <p>기억을 걷는 시간 - 넬</p>
+            <p>In The Rain - 윤지성</p>
+            <p>비 내리면 (Feat. sogumm) - 릴러말즈 (Leellamarz)</p>
+            <p>소나기 - 아이오아이 (1.0.l)</p>
+            <p>비 오는 거리 - 유승우</p>
+            <p>봄비 - 장범준</p>
+        </div>
+
+
+        <!-- 링크 버튼+닫기 -->
+        <div class="btn-area">
+            <a href="https://youtube.com/">
+                <img src="./image/mood/Union.svg" alt="">
+                음악 듣기
+            </a>
+            <button class="close">닫기</button>
+        </div>
+    </aside>
+
+
+
+
+
+    <script>
+        const modal = document.querySelector('.modal');
+        const modalImg = document.querySelector('.modal-main-img');
+        const playlist = document.querySelector('.playlist');
+        const overlay = document.querySelector('.overlay');
+        const closeBtn = document.querySelector('.close');
+        const starBtn = document.querySelector('.star-btn');
+
+        const aside = document.querySelector('aside');
+
+
+        // 이미지 클릭 (오버레이, 팝업)
+        playlist.addEventListener('click', function (e) {
+
+            if (e.target.tagName === 'IMG') {
+                modalImg.src = e.target.src;
+
+                overlay.classList.add('active');
+
+            }
+        });
+
+        // 닫기 버튼
+        closeBtn.addEventListener('click', closeModal);
+        overlay.addEventListener('click', closeModal);
+
+        function closeModal() {
+            overlay.classList.remove('active');
+            modal.classList.remove('active');
+        }
+
+        // ======== 별표 스크랩 ============
+        // 초기 상태: 빈 별
+        starBtn.innerHTML = `<img src="./image/codi/Vector2.svg" alt="star empty">`;
+
+        // 별 초기화 함수
+        function resetStar() {
+            starBtn.classList.remove('active');
+            starBtn.innerHTML = `<img src="./image/codi/Vector2.svg" alt="star empty">`;
+        }
+
+        // 초기 상태 세팅
+        resetStar();
+
+        starBtn.addEventListener('click', function () {
+            this.classList.toggle('active');
+
+            if (this.classList.contains('active')) {
+                // 클릭 → 채워진 별
+                this.innerHTML = `<img src="./image/codi/Vector.svg" alt="star filled">`;
+            } else {
+                // 클릭 → 빈 별
+                this.innerHTML = `<img src="./image/codi/Vector2.svg" alt="star empty">`;
+            }
+        });
+
+        // 모달 열 때 별 초기화
+        playlist.addEventListener('click', function (e) {
+            if (e.target.tagName === 'IMG') {
+                modalImg.src = e.target.src;
+
+                overlay.classList.add('active');
+                modal.classList.add('active');
+
+                // 모달 열릴 때 별 초기화
+                resetStar();
+            }
+        });
+
+        // 모달 닫기
+        function closeModal() {
+            overlay.classList.remove('active');
+            modal.classList.remove('active');
+        }
+
+        closeBtn.addEventListener('click', closeModal);
+        overlay.addEventListener('click', closeModal);
+
+
+
+    </script>
+
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+        const swiper = new Swiper(".mySwiper", {
+            slidesPerView: 1.2,
+            spaceBetween: 20,
+            centeredSlides: false,
+
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+
+            breakpoints: {
+                768: {
+                    slidesPerView: 2.5,
+                },
+                1024: {
+                    slidesPerView: 3,
+                }
+            }
+        });
+    </script>
+
+
+
+    <!-- 날씨 api -->
+    <script>
+        async function getWeather() {
+
+            const now = new Date();
+            now.setMinutes(now.getMinutes() - 40);
+
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const date = String(now.getDate()).padStart(2, '0');
+            const hours = String(now.getHours()).padStart(2, '0') + "00";
+
+            const base_date = `${year}${month}${date}`;
+            const base_time = hours;
+
+            const serviceKey = "wdHUMVHHQP8PTCqieskq57%2Fq1PuW0Mw5VDJu1NscK56NMphWzBjzgYA6ow8DcmR5zs0pyITnyXqMWfUKyBdSCg%3D%3D";
+
+            const url = `https://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtNcst?serviceKey=${serviceKey}&pageNo=1&numOfRows=1000&dataType=JSON&base_date=${base_date}&base_time=${base_time}&nx=60&ny=130`;
+
+            const res = await fetch(url);
+            const data = await res.json();
+
+            const items = data.response.body.items.item;
+
+            const temp = items.find(i => i.category === "T1H")?.obsrValue;
+            const pty = items.find(i => i.category === "PTY")?.obsrValue;
+
+            let skyText = "맑음";
+            let iconText = "clear_day";
+
+            if (pty == 1) { skyText = "비"; iconText = "rainy"; }
+            if (pty == 2) { skyText = "비/눈"; iconText = "rainy"; }
+            if (pty == 3) { skyText = "눈"; iconText = "ac_unit"; }
+            if (pty == 4) { skyText = "소나기"; iconText = "rainy"; }
+
+            const sky = items.find(i => i.category === "SKY")?.obsrValue;
+
+            if (pty == 0) {
+                if (sky == 1) skyText = "맑음";
+                else if (sky == 3) skyText = "구름많음";
+                else if (sky == 4) skyText = "흐림";
+            }
+
+            document.getElementById("currentTemp").innerText =
+                `현재 기온 ${temp}°`;
+
+            document.getElementById("weatherState").innerText = skyText;
+            document.getElementById("weatherIcon").innerText = iconText;
+        }
+
+        getWeather();
+
+
+    </script>
+
+
+</body>
+
+</html>
