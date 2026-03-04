@@ -1,94 +1,175 @@
 
 
-// 공공데이터포털에서 발급받은 개인 인증키
-// 모든 날씨 / 미세먼지 API 호출에 사용됨
-
+/// ============================================
+// 🔆 일출·일몰 반원
 // ============================================
-// 🔆 일출·일몰 반원 애니메이션
-// ============================================
-const riseSetApiUrl = "http://apis.data.go.kr/B090041/openapi/service/RiseSetInfoService/getAreaRiseSetInfo?location=%EC%84%9C%EC%9A%B8&locdate=20260302&ServiceKey=0123891d17b0e073ff763a40afc5aed555b9b50358d33ebf729a71244c77c4e0&_type=json";
 
-// HHMM 문자열 -> HH:MM
+// HHMM → HH:MM
 function formatTime(timeStr) {
     if (!timeStr || timeStr.trim() === "----") return "--:--";
     return `${timeStr.substring(0, 2)}:${timeStr.substring(2, 4)}`;
+    
 }
 
-// HHMM -> 오늘 날짜 Date 객체
+
+// 오늘 날짜 YYYYMMDD
+function getTodayStr() {
+    const now = new Date();
+    const y = now.getFullYear();
+    const m = String(now.getMonth() + 1).padStart(2, "0");
+    const d = String(now.getDate()).padStart(2, "0");
+    return `${y}${m}${d}`;
+}
+
+// HHMM → 오늘 날짜 Date 객체
 function timeStrToDate(timeStr) {
     const now = new Date();
-    return new Date(now.getFullYear(), now.getMonth(), now.getDate(), parseInt(timeStr.substring(0, 2)), parseInt(timeStr.substring(2, 4)), 0);
+    return new Date(
+        now.getFullYear(),
+        now.getMonth(),
+        now.getDate(),
+        parseInt(timeStr.substring(0, 2)),
+        parseInt(timeStr.substring(2, 4)),
+        0
+    );
 }
 
-// 진행률 계산 (0~1)
+// 진행률 계산
 function getProgress(start, end, now) {
     const total = end - start;
     const elapsed = now - start;
     let p = elapsed / total;
+
     return Math.max(0, Math.min(1, p));
 }
 
-// SVG 반원
+
+// SVG 세팅
+
+
 const circle = document.querySelector(".progress");
 const radius = circle.r.baseVal.value;
-const circumference = 2 * Math.PI * radius;
+const circumference = Math.PI * radius;
 
 
 
+circle.style.strokeDasharray = circumference;
+circle.style.strokeDashoffset = circumference;
 
 
 
-// 진행률 업데이트
+// 진행률 반영
 function setProgress(percent) {
-
+    const offset = circumference - percent * circumference;
+    circle.style.strokeDashoffset = offset;
 }
 
-// 태양 위치 업데이트
+
+
+
+// 태양 위치
 function setSunPosition(percent) {
-
+    const sun = document.querySelector(".sun");
+    const angle = percent * 180;
+    sun.style.transform = `rotate(${angle}deg) translateX(80px)`;
 }
 
-// 일출·일몰 API 호출
-fetch(riseSetApiUrl)
-    .then(res => res.json())
-    .then(data => {
-        const item = data.response.body.items.item;
-        const sunriseStr = item.sunrise.trim();
-        const sunsetStr = item.sunset.trim();
+// ---------------------------
+// 🌅 API 호출
+// ---------------------------
 
-        let riseStr = [sunriseStr.substring(0, 2), sunriseStr.substring(2)];
-        let setStr = [sunsetStr.substring(0, 2), sunsetStr.substring(2)];
-        let nowStr = [new Date().getHours(), new Date().getMinutes()];
+let sunriseDate = null;
+let sunsetDate = null;
 
+function fetchRiseSet() {
 
-        let a = ((nowStr[0] - riseStr[0]) * 60) + (nowStr[1] - riseStr[1]);
-        let b = ((setStr[0] - riseStr[0]) * 60) + (setStr[1] - riseStr[1])
-        let c = Math.round(a / b * 100);
-        let d = Math.round(a / b * 100) / 100 * 50;
-        circle.style.strokeDasharray = `${d} 100`;
+    const todayStr = getTodayStr();
 
-        const sun = document.querySelector(".sun");
-        sun.style.transform = `rotate(${c / 100 * 180}deg) translateX(80px)`;
+    const riseSetApiUrl =
+        `https://apis.data.go.kr/B090041/openapi/service/RiseSetInfoService/getAreaRiseSetInfo` +
+        `?location=의정부` +
+        `&locdate=${todayStr}` +
+        `&ServiceKey=0123891d17b0e073ff763a40afc5aed555b9b50358d33ebf729a71244c77c4e0` +
+        `&_type=json`;
 
+    fetch(riseSetApiUrl)
+        .then(res => res.json())
+        .then(data => {
 
+            const items = data.response.body.items.item;
+            const item = Array.isArray(items) ? items[0] : items;
 
-        document.querySelector(".sunrise h2").textContent = formatTime(sunriseStr);
-        document.querySelector(".sunset h2").textContent = formatTime(sunsetStr);
+            const sunriseStr = item.sunrise.trim();
+            const sunsetStr = item.sunset.trim();
 
-        const sunrise = timeStrToDate(sunriseStr);
-        const sunset = timeStrToDate(sunsetStr);
+            document.querySelector(".sunrise h2").textContent = formatTime(sunriseStr);
+            document.querySelector(".sunset h2").textContent = formatTime(sunsetStr);
 
-        function updateSun() {
-            const now = new Date();
-            const progress = getProgress(sunrise, sunset, now);
-            setProgress(progress);
-            setSunPosition(progress);
-            requestAnimationFrame(updateSun);
-        }
+            sunriseDate = timeStrToDate(sunriseStr);
+            sunsetDate = timeStrToDate(sunsetStr);
 
-        updateSun();
-    })
-    .catch(err => console.error("일출·일몰 API 오류:", err));
+        })
+        .catch(err => console.error("일출·일몰 API 오류:", err));
+}
+
+// ---------------------------
+// ☀️ 실시간 애니메이션
+// ---------------------------
+
+function animateSun() {
+
+    if (!sunriseDate || !sunsetDate) {
+        requestAnimationFrame(animateSun);
+        return;
+    }
+
+    const now = new Date();
+    const progress = getProgress(sunriseDate, sunsetDate, now);
+    
+
+    setProgress(progress);
+    setSunPosition(progress);
+
+    requestAnimationFrame(animateSun);
+}
+
+// ---------------------------
+// 🌙 자정 자동 갱신
+// ---------------------------
+
+function scheduleMidnightUpdate() {
+
+    const now = new Date();
+
+    const midnight = new Date(
+        now.getFullYear(),
+        now.getMonth(),
+        now.getDate() + 1,
+        0, 0, 1
+    );
+
+    const timeUntilMidnight = midnight - now;
+
+    setTimeout(() => {
+
+        fetchRiseSet(); // 다음날 데이터 재요청
+
+        // 애니메이션 리셋
+        circle.style.strokeDashoffset = circumference;
+        setSunPosition(0);
+
+        scheduleMidnightUpdate(); // 다음 자정 예약
+
+    }, timeUntilMidnight);
+}
+
+// ---------------------------
+// 🚀 실행
+// ---------------------------
+
+fetchRiseSet();
+animateSun();
+scheduleMidnightUpdate();
 
 
 // =====================================================

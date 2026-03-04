@@ -109,7 +109,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 25px 30px 10px;
+    padding: 30px 30px 10px;
 }
 
 .weather-title2>p {
@@ -130,7 +130,7 @@
 /* ======================= 주간 날씨 ======================= */
 .weather-week {
     margin: 0 auto;
-    padding: 5px 30px;
+    padding: 7px 30px;
     width: 90%;
     background-color: rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(10px);
@@ -143,11 +143,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5px 0;
+    padding: 9px 0;
 }
 
 .week-info{
-    width: 10%;
+    width: 30%;
     flex-shrink: 0;
 }
 
@@ -156,7 +156,7 @@
 }
 
 .UPDOWN{
-    width: 10%;
+    width: 30%;
 }
 
 .weather-week>ul>li>b {
@@ -177,14 +177,16 @@
     font-weight: normal;
 }
 
-.weather-week>ul>li>small {
+.week-info>small {
     font-size: 10px;
+    padding-left: 7px;
 }
 
 .weather-week .week>li>small {
     font-size: 10px;
 
 }
+
 
 .weather-week .UPDOWN {
     display: flex;
@@ -193,7 +195,7 @@
 }
 
 .week-icon .material-symbols-outlined{
-    padding: 0 10px;
+    padding: 0 13px;
 }
 
 .weather-week .UPDOWN>p:nth-of-type(1) {

@@ -61,8 +61,10 @@
     filter: drop-shadow(0 0 10px yellow);
     transform: rotate(50deg) translateX(80px);
     
+    
     /* animation: sun 5s linear forwards; */
 }
+
 
 @keyframes sun {
     from {}
