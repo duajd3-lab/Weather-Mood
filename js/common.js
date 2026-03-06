@@ -28,8 +28,11 @@ if(sessionStorage.ani){
         const el_backBtn=document.querySelector('.txt span')
 
         el_backBtn.addEventListener('click',function(){
-           history.back();
-           location.replace();
+          if(location.pathname.match('codiScrap')){
+            location.href = './scrap.html';
+          }else{
+            history.back();           
+          }
         });
     }
     if(!(location.pathname == '/' || location.href.match('index'))){
