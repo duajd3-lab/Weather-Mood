@@ -31,7 +31,7 @@ let dataJson = async function () {
             dataFilter.push(f[key]);
         })
     }
-
+    
 
     if (weatherState.innerText.match('비' || '소나기')) {
         let f1 = [...data[0].rain];

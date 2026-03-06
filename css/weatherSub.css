@@ -118,7 +118,7 @@
     align-items: flex-end;
 }
 
-h2 {
+h3 {
     margin: 3px 0 0;
     font-size: 25px;
 }
@@ -212,9 +212,7 @@ h2 {
 }
 
 .moon-name {
-    padding-top: 25px;
-    display: flex;
-    flex-direction: column;
+    padding-top: 30px;
 }
 
 .phase-text {

@@ -120,10 +120,7 @@
 
 
     // ======= 코디 스크랩 ==========
-    // 초기 상태: 빈 별
-    starBtn.innerHTML = `<img src="./image/codi/Vector2.svg" alt="star empty">`;
-
-    // 별 초기화 함수
+      // 별 초기화 함수
     function resetStar() {
       starBtn.classList.remove('active');
       starBtn.innerHTML = `<img src="./image/codi/Vector2.svg" alt="star empty">`;

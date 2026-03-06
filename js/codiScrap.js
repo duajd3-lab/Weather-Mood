@@ -171,6 +171,7 @@ function closeModal() {
     modal.classList.remove('active');
     setTimeout(() => {
         starBtn.innerHTML = `<img src="./image/codi/Vector2.svg" alt="star empty">`;
+        const activeBtn = document.querySelector('.styleBtn .active')
         loadScrap(activeBtn.textContent);
     }, 100)
 }

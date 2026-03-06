@@ -13,7 +13,6 @@
     height: 180px; width: 100%;
     display: flex;
     justify-content: center;
-
 }
 
 .list{
@@ -40,12 +39,20 @@
 
 /* --------------- 야외활동 ------------------- */
 
-.activity{margin-top: 30px; margin-bottom: 20px;}
-.activity-01{display: flex; align-items: flex-end; margin-bottom: 10px;}
-.activity-card img{width: 40px; height: 40px; margin-right: 15px;}
+.activity{margin-top: 35px;}
+.activity-01{
+    display: flex; 
+    align-items: end;
+    margin-bottom: 10px;
+}
+.activity-01 > p{
+    width: 40px;
+    font-size: 27px;
+    text-align: center; 
+}
 
 .activity-text > p > span{font-size: 15px; font-weight: 600; margin-right: 10px;}
-.activity-text{font-size: 12px; color: black;}
+.activity-text{font-size: 12px; color: black; margin-left: 10px;}
 .desc{color: #00ce93;}
 
 
@@ -79,12 +86,13 @@ aside{
 }
 
 aside .title span img{width: 20px; height: 20px;}
-aside .title p{font-size: 20px; font-weight: bold; margin-left: 10px;}
+aside .title p{font-size: 20px; font-weight: bold; margin-left: 3px;}
 aside .title{
     display: flex;
     align-items: center;
-    margin-top: 20px;
-    margin-left: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    margin: 20px 20px 0 20px;
 }
 
 /* 버튼 */
@@ -134,7 +142,7 @@ aside .title{
 .modal-list:hover{scrollbar-color: #8FEBD0 transparent;}
 .modal-list::-webkit-scrollbar-button{display: none; width: 0; height: 0;}
 
-.modal-list p{margin-bottom: 3px;}
+.modal-list p{margin-bottom: 5px;}
 
 /* 오버레이 */
 .overlay{

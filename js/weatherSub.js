@@ -100,8 +100,8 @@ function fetchRiseSet() {
             const sunriseStr = item.sunrise.trim();
             const sunsetStr = item.sunset.trim();
 
-            document.querySelector(".sunrise h2").textContent = formatTime(sunriseStr);
-            document.querySelector(".sunset h2").textContent = formatTime(sunsetStr);
+            document.querySelector(".sunrise h3").textContent = formatTime(sunriseStr);
+            document.querySelector(".sunset h3").textContent = formatTime(sunsetStr);
 
             sunriseDate = timeStrToDate(sunriseStr);
             sunsetDate = timeStrToDate(sunsetStr);
@@ -623,7 +623,6 @@ function applyMoonData(item) {
 
     moonName.innerHTML = `
     <span class="phase-text">${phaseName.kor}</span>
-    <span class="illum-text">밝기:${illumination}%</span>
 `;
 }
 
