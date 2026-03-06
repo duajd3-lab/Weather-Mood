@@ -135,7 +135,7 @@
         else{
           if(dustText == '나쁨' || dustText == "매우나쁨"){
             el_mainItem.innerHTML=`<img src="./image/index/item/item_dust.png" alt="">
-                    <span>미세먼지 주의!<br> 마스크를 챙기세요!</span>`
+                    <span>미세먼지 주의!<br> 마스크를 챙기세요</span>`
           }else{
             if(tempSky.temp > 26){ 
             el_mainItem.innerHTML=`<img src="./image/index/item/item_hot.png" alt="">
