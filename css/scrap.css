@@ -42,10 +42,12 @@ border:2px dashed #f0f0f0;margin-right:10px;}
 
 /* ------------------ 코디 보관함 스크랩되있을때---------------------- */
 .codiScrapContainer{height: 180px; 
-display: flex;width: 400px;position: relative;
+display: flex; width: 400px; position: relative;
  overflow-x: auto; gap:10px;
 }
 .codiScrapContainer img{height: 100%; width: 138px; object-fit: cover;}
+
+
 
 
 /* ============================음악 보관함============================= */

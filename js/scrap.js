@@ -1,3 +1,19 @@
+//  Initialize Swiper
+let playlistSwiper = function () {
+
+    const swiper = new Swiper(".mySwiper2", {
+        spaceBetween: 10,
+        slidesPerView: 2.7,
+        centeredSlides: false,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        }
+    });
+}
+
+
+
 // =============코디 보관함 옆 화살표 누르면 codiScrap.html로 이동=============
 const el_codiMore = document.querySelector('.codiScrapSelect h3')
 
@@ -18,17 +34,17 @@ let loadScrap = async function () {
     const codiScrapContainerEmpty = document.querySelector('.codiScrapContainerEmpty');
     // console.log(scrapId)/* 스크랩한 사진 id값을 배열형식으로 */
 
-    
+
     let dataFilter = [];/* localStorage에 있는 id값의 데이터를 옮겨올 곳 */
-    
+    let gen=localStorage.getItem('gender')
     // 저장함수
     let saveIdFun=function(){
         scrapId.forEach(function (ss, i) {/* 스크랩해서 scrapList에 있는 옷들의 id값 전체 ss의 i개만큼 반복 */
-                for (let key in data) {/* 전체 데이터 안에서 스타일 */
-                    for (let k in data[key]) {/* 전체 데이터 안에서 스타일 안에서 계절 */
-                        data[key][k].forEach(function (v, i) {/* 전체 데이터 안에서 스타일 안에서 계절까지 들어와서 그 안에있는 여러 배열조합 v를 i개만큼 반복 */
-                            ss == v.id ? dataFilter.push(v) : '';/* 위에서 누른 스크랩된 id값과 배열조합 v의 id값이 같다면 그 v를 dataFilter에 넣기 */
-                        })
+                for (let key in data[gen]) {/* 전체 데이터 안에서 스타일 */
+                    for (let k in data[gen][key]) {/* 전체 데이터 안에서 스타일 안에서 계절 */
+                            data[gen][key][k].forEach(function (v, i) {/* 전체 데이터 안에서 스타일 안에서 계절까지 들어와서 그 안에있는 여러 배열조합 v를 i개만큼 반복 */
+                                ss == v.id ? dataFilter.push(v) : '';/* 위에서 누른 스크랩된 id값과 배열조합 v의 id값이 같다면 그 v를 dataFilter에 넣기 */
+                            })                      
                         // console.log(data[key][k])/* 5개 스타일중 각각의 계절을 하나의 배열묶음으로 */
                         // console.log(data[key])/* 사계절 X 5개 스타일 X 네번반복 */
                         // console.log(k)/* 사계절 X 5개 스타일 */
@@ -39,7 +55,7 @@ let loadScrap = async function () {
             })
         }
     saveIdFun();
-    // console.log(dataFilter)
+    console.log(dataFilter)
     
     // 출력함수
     let printImgFun=function(){
@@ -53,10 +69,22 @@ let loadScrap = async function () {
                         <a href="./codi.html">코디 둘러보기</a>
                         </div>`
         }else{
-            dataFilter.forEach(function(v){/* 코디 보관함 스크랩되있을때 */
                 codiScrapContainerEmpty.style.display='none'
-                codiScrapContainer.innerHTML+=`<p><img src='${v.src}'></p>`;
+                codiScrapContainer.innerHTML =
+                `<div class="swiper mySwiper2">
+                        <div class="swiper-wrapper">
+                            
+                        </div>
+                </div>`;
+                const el_list = document.querySelector('.swiper-wrapper');
+                el_list.innerHTML = '';
+                dataFilter.reverse().forEach(function(v,i){/* 코디 보관함 스크랩되있을때 */
+                    if(i<10){
+                        el_list.innerHTML+=
+                        `<p class="list swiper-slide"><img src='${v.src}'></p>`;
+                    }
             })
+            playlistSwiper();
         }
     }
     printImgFun();
