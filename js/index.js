@@ -107,8 +107,10 @@
     const el_mainItem=document.querySelector('.item')
 
     let loadCharacter=async function(){
+      console.log(23234)
       const res=await fetch('./js/index.json')
       const data=await res.json();
+
   
       let tempSky=JSON.parse(localStorage.getItem('tempSky'))/* 현재기온 가져오기 */
       let genderCheck = localStorage.getItem('gender')
@@ -116,6 +118,7 @@
       let resultCodi=data.캐릭터옷.find(function(ss){
         return tempSky.temp >= ss.min && tempSky.temp <=ss.max;
       })
+
 
       let imgpng=resultCodi.img[genderCheck]/* 나온 배열의 img[가져온 성별값] -> 해당 옷의 경로값 */
 
@@ -166,5 +169,5 @@
         case "흐림" :el_mainWeather3D[5].classList.add('active') ; break;
       }
     };
-    loadCharacter();
+
 

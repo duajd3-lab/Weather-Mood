@@ -146,7 +146,9 @@ let weatherBarFun=function(){
     
         const updateEl = document.getElementById("updateTime");
         if (updateEl) updateEl.innerText = `업데이트: ${new Date().toLocaleTimeString()}`;
-
+        
+        
+        loadCharacter();
         dataJson();
 
       } catch (err) {
@@ -187,6 +189,7 @@ let weatherBarFun=function(){
 let pathname = location.pathname;
 
 
-if(!(location.pathname == "/" || location.href.match("weather") || location.href.match("set"))){
+if(!( location.href.match("weather") || location.href.match("set"))){
     weatherBarFun();
+          
   }; 
