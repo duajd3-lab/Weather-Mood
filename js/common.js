@@ -13,26 +13,22 @@ if(sessionStorage.ani){
         el_navBarP.forEach(function(ss,i){
             ss.addEventListener('click',function(){
                 location.href = this.dataset.url;
-               el_navBarP.forEach(function(aa,i){
-                aa.classList.remove('active')
-               })
-               ss.classList.add('active')
+              //  el_navBarP.forEach(function(aa,i){
+              //   aa.classList.remove('active')
+              //  })
+              //  ss.classList.add('active')
             });
-            if(ss.dataset.url == currentPath){
-                ss.classList.add('active')
-            }
+            // if(ss.dataset.url == currentPath){
+            //     ss.classList.add('active')
+            // }
         });
 
 // ===========================뒤로가기 버튼================================
     let backBtn=function(){
         const el_backBtn=document.querySelector('.txt span')
 
-        el_backBtn.addEventListener('click',function(){
-          if(location.pathname.match('codiScrap') || location.pathname.match('moodScrap')){
-            location.href = './scrap.html';
-          }else{
-            history.back();           
-          }
+        el_backBtn.addEventListener('click',function(){  
+            history.back();               
         });
     }
     if(!(location.pathname == '/' || location.href.match('index'))){

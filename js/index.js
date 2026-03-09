@@ -1,3 +1,35 @@
+if(!sessionStorage.ani){
+    aa();
+}
+
+async function aa(){
+  const serviceKey = "0123891d17b0e073ff763a40afc5aed555b9b50358d33ebf729a71244c77c4e0";  // 일반키 그대로
+
+  const stationName = "의정부동";
+
+   const url =
+        `https://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getMsrstnAcctoRltmMesureDnsty?` +
+        `serviceKey=${encodeURIComponent(serviceKey)}` +
+        `&returnType=json&numOfRows=1&pageNo=1` +
+        `&stationName=${encodeURIComponent(stationName)}` +
+        `&dataTerm=DAILY&ver=1.3`;
+
+    const res = await fetch(url);
+    const data = await res.json();
+    const item = data.response?.body?.items?.[0];
+
+    const gradeMap = {
+            1: { text: "좋음"},
+            2: { text: "보통"},
+            3: { text: "나쁨"},
+            4: { text: "매우나쁨"}
+        };
+
+    console.log('sdsf')
+
+    localStorage.dust = JSON.stringify(item);
+}
+
 // ================맨처음 성별선택 온보딩 & 기록있으면 바로 메인===================
         const onboarding=document.querySelector('.onboarding');
         const main=document.querySelector('.main')
@@ -129,8 +161,10 @@
       el_mainCharacter.innerHTML=`<img src="${imgpng}" alt="">`/* 해당 옷의 경로값 삽입 */
       
     // =====================날씨에 따라 추천아이템과 멘트 바뀌게=====================
-    
-      let dustText=localStorage.getItem('dust')
+      
+      
+
+      let dustText=JSON.parse(localStorage.getItem('dust')) || {};
 
         if(tempSky.skyText == "비" || 
            tempSky.skyText == "비/눈" ||
@@ -140,7 +174,7 @@
                     <span>비가 옵니다.<br> 우산을 챙기세요!</span>`
         }
         else{
-          if(dustText == '나쁨' || dustText == "매우나쁨"){
+          if(dustText.pm10Grade1h >= 3 || dustText.pm25Grade1h >= 3){
             el_mainItem.innerHTML=`<img src="./image/index/item/item_dust.png" alt="">
                     <span>미세먼지 주의!<br> 마스크를 챙기세요</span>`
           }else{
