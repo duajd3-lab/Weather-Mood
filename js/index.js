@@ -114,9 +114,10 @@
   
       let tempSky=JSON.parse(localStorage.getItem('tempSky'))/* 현재기온 가져오기 */
       let genderCheck = localStorage.getItem('gender')
-console.log(data)
-
+      
+      console.log(data)
       let resultCodi=data.캐릭터옷.find(function(ss){
+              console.log(tempSky.temp >= ss.min && tempSky.temp <=ss.max)
         return tempSky.temp >= ss.min && tempSky.temp <=ss.max;
       })
 
