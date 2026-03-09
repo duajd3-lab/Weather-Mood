@@ -113,9 +113,13 @@ async function dataFun() {
             `serviceKey=${serviceKey}&numOfRows=1000&pageNo=1&dataType=JSON` +
             `&base_date=${dateArr[0].txt}&base_time=${baseTime}&nx=61&ny=131`
         );
+        
 
         const shortData = await shortRes.json();
         const items = shortData.response.body.items.item;
+
+        console.log(items);
+        
 
         let shortFilter = {};
         for (let i = 1; i <= 4; i++) shortFilter[i] = {};

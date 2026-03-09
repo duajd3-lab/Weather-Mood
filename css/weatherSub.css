@@ -212,11 +212,11 @@ h3 {
 }
 
 .moon-name {
-    padding-top: 30px;
+    padding-top: 28px;
 }
 
 .phase-text {
-    font-size: 20px;
+    font-size: 22px;
     font-weight: bold;
 }
 
@@ -247,6 +247,7 @@ moon-phase::after {
   position: absolute;
   width: var(--_w);
   opacity: .85;
+  filter: blur(3px);
 }
 
 /* 방향 처리 */

@@ -584,7 +584,7 @@ function getPhaseByAge(lunAge) {
         return { eng: "full moon", kor: "보름달" };
 
     if (lunAge < 20.302)
-        return { eng: "waning gibbous", kor: "보름 지난 달" };
+        return { eng: "waning gibbous", kor: "기우는 달" };
 
     if (lunAge < 23.993)
         return { eng: "last quarter", kor: "하현달" };
