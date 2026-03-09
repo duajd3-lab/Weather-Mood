@@ -117,10 +117,10 @@
       
       console.log(data)
       let resultCodi=data.캐릭터옷.find(function(ss){
-              console.log(tempSky.temp >= ss.min && tempSky.temp <=ss.max)
         return tempSky.temp >= ss.min && tempSky.temp <=ss.max;
       })
-
+      
+      console.log(resultCodi)
 
       let imgpng=resultCodi.img[genderCheck]/* 나온 배열의 img[가져온 성별값] -> 해당 옷의 경로값 */
 
