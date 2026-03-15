@@ -46,9 +46,10 @@
 
 ### 4. 주요 기술 스택
 
-* Front-End : React, React Router
-* Back-End : Node.js, PHP, XAMPP
-* Data-Base : MySQL
+* Front-End : HTML5, CSS3, JavaScript
+* Data : Weather API, JSON
+* Design : Figma, Photoshop, Illustrator
+* Tools : Visual Studio Code, GitHub
 
 ## 📅 개발 기간
 
@@ -80,7 +81,7 @@
   현재 기온, 날씨 상태 등 다양한 날씨 정보를 확인할 수 있습니다.
 
 * 👕 **날씨 기반 코디 추천**
-  날씨에 맞는 코디를 **데일리 / 스트릿 스타일**로 추천합니다.
+  날씨에 맞는 코디를 **캐주얼 / 스트릿 스타일**로 추천합니다.
 
 * 🎵 **날씨 기반 음악 추천**
   날씨 분위기에 어울리는 음악을 추천합니다.
@@ -154,52 +155,40 @@ WEATHER-MOOD
 
 ### 1. Frond-End
 
-| 사용기술 | 설명 |Badge |
-| :---:| :---: | :---: |
-| **React** | **SPA기반 프레임워크** |![react](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=white)|
-|**React Router Dom** | **페이지 라우팅 관리** |![reactrouter](https://img.shields.io/badge/ReactRouter-CA4245?style=flat-square&logo=reactrouter&logoColor=white)|
-| **React Hook Form** | **폼 상태 및 데이터 관리** |![reacthookform](https://img.shields.io/badge/ReactHookForm-F24E1E?style=flat-square&logo=reacthookform&logoColor=white)|
-| **Axios** | **클라이언트에서 서버로 API 요청 처리** |![axios](https://img.shields.io/badge/Axios-5A29E4?style=flat-square&logo=axios&logoColor=white)|
+|      사용기술      | 설명                   |                                                       Badge                                                       |
+| :------------: | :------------------- | :---------------------------------------------------------------------------------------------------------------: |
+|    **HTML5**   | 웹 페이지 구조 설계          |         ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square\&logo=html5\&logoColor=white)        |
+|    **CSS3**    | 웹 페이지 스타일 및 레이아웃 디자인 |          ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square\&logo=css3\&logoColor=white)          |
+| **JavaScript** | 사용자 인터랙션 및 기능 구현     | ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square\&logo=javascript\&logoColor=black) |
 
-### 2. UI/UX 라이브러리
+---
 
-| 사용기술 | 설명 | Badge |
-| :---:| :---: | :---: |
-| **MUI** | **UI 프레임워크** |![mui](https://img.shields.io/badge/MUI-007FFF?style=flat-square&logo=mui&logoColor=white) |
-| **Swiper** | **슬라이더** |![Swiper](https://img.shields.io/badge/Swiper-6332F6?style=flat-square&logo=axios&logoColor=white)|
-| **react-swipeable** | **스와이프 제스처** |![npm](https://img.shields.io/badge/react--swipeable-00e6a4?style=flat-square&logo=npm&logoColor=white)|
-| **motion** | **애니메이션** |![motion](https://img.shields.io/badge/motion-fff312?style=flat-square&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjQgOSI+CiAgPHBhdGggZD0iTSA5LjA2MiAwIEwgNC4zMiA4Ljk5MiBMIDAgOC45OTIgTCAzLjcwMyAxLjk3MSBDIDQuMjc3IDAuODgyIDUuNzA5IDAgNi45MDIgMCBaIE0gMTkuNjU2IDIuMjQ4IEMgMTkuNjU2IDEuMDA2IDIwLjYyMyAwIDIxLjgxNiAwIEMgMjMuMDA5IDAgMjMuOTc2IDEuMDA2IDIzLjk3NiAyLjI0OCBDIDIzLjk3NiAzLjQ5IDIzLjAwOSA0LjQ5NiAyMS44MTYgNC40OTYgQyAyMC42MjMgNC40OTYgMTkuNjU2IDMuNDkgMTkuNjU2IDIuMjQ4IFogTSA5Ljg3MiAwIEwgMTQuMTkyIDAgTCA5LjQ1IDguOTkyIEwgNS4xMyA4Ljk5MiBaIE0gMTQuOTc0IDAgTCAxOS4yOTQgMCBMIDE1LjU5MiA3LjAyMSBDIDE1LjAxOCA4LjExIDEzLjU4NSA4Ljk5MiAxMi4zOTIgOC45OTIgTCAxMC4yMzIgOC45OTIgWiIgZmlsbD0icmdiKDAsIDAsIDApIj48L3BhdGg+Cjwvc3ZnPgo=&logoColor=white)|
-| **Sass** | **스타일링**|![Sass](https://img.shields.io/badge/Sass-CC6699?style=flat-square&logo=Sass&logoColor=white)|
-| **sweetalert2** | **커스텀 팝업 알림 UI** |![sweetalert2](https://img.shields.io/badge/sweetalert2-F27474?style=flat-square&logo=datefns&logoColor=white)|
+### 2. 데이터 및 API
 
-### 3. Back-End
+|       사용기술      | 설명               |                                              Badge                                              |
+| :-------------: | :--------------- | :---------------------------------------------------------------------------------------------: |
+|     **JSON**    | 코디 및 음악 데이터 관리   | ![JSON](https://img.shields.io/badge/JSON-000000?style=flat-square\&logo=json\&logoColor=white) |
+| **Weather API** | 현재 날씨 및 날씨 정보 제공 |   ![API](https://img.shields.io/badge/API-FF6F00?style=flat-square\&logo=api\&logoColor=white)  |
 
-| 사용기술 | 설명 | Badge |
-| :---:| :---: | :---: |
-| **Node.js** | **JavaScript 런타임 환경** |![nodedotjs](https://img.shields.io/badge/Node.js-5FA04E?style=flat-square&logo=nodedotjs&logoColor=white)|
-| **PHP** | **회원 및 상품 관리, 관리자 페이지 구현 등 서버 측 로직 처리** |![PHP](https://img.shields.io/badge/PHP-8892BE?style=flat-square&logo=npm&logoColor=white)|
-| **MySQL** | **데이터베이스 관리**  |![MySQL](https://img.shields.io/badge/MySQL-00758F?style=flat-square&logo=JSON&logoColor=white)|
-| **XAMPP** | **Apache, MySQL, PHP를 통합 제공하는 로컬 서버 개발 도구** |![XAMPP](https://img.shields.io/badge/XAMPP-FB7A24?style=flat-square&logo=nodemon&logoColor=white)|
-| **Axios** | **서버에서 API 요청 처리** |![axios](https://img.shields.io/badge/Axios-5A29E4?style=flat-square&logo=axios&logoColor=white)|
+---
+
+### 3. 디자인
+
+|       사용기술      | 설명                |                                                           Badge                                                           |
+| :-------------: | :---------------- | :-----------------------------------------------------------------------------------------------------------------------: |
+|    **Figma**    | UI/UX 디자인 및 화면 설계 |             ![Figma](https://img.shields.io/badge/Figma-F24E1E?style=flat-square\&logo=figma\&logoColor=white)            |
+|  **Photoshop**  | 이미지 편집 및 디자인 작업   |    ![Photoshop](https://img.shields.io/badge/Photoshop-31A8FF?style=flat-square\&logo=adobephotoshop\&logoColor=white)    |
+| **Illustrator** | 아이콘 및 그래픽 디자인     | ![Illustrator](https://img.shields.io/badge/Illustrator-FF9A00?style=flat-square\&logo=adobeillustrator\&logoColor=white) |
+
+---
 
 ### 4. 개발 도구
 
-|사용기술 | 설명 | Badge | 
-| :---:| :---: | :---: |
-| **Visual Studio Code (VS Code)** | **코드 편집기( 에디터 )** |![VSCode](https://img.shields.io/badge/VSCode-007ACC?style=flat-square&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTI0LjAwMyAyTDEyIDEzLjMwM0w0Ljg0IDhMMiAxMEw4Ljc3MiAxNkwyIDIyTDQuODQgMjRMMTIgMTguNzAyTDI0LjAwMyAzMEwzMCAyNy4wODdWNC45MTNMMjQuMDAzIDJaTTI0IDkuNDM0VjIyLjU2NkwxNS4yODkgMTZMMjQgOS40MzRaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K&logoColor=white) |
-|**GitHub** | **버전 관리** |![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white)| 
-| **Vercel** | **서버리스 플랫폼** |![vercel](https://img.shields.io/badge/Vercel-000000?style=flat-square&logo=vercel&logoColor=white)|
-| **Figma** | **디자인 & UI/UX**|![Figma](https://img.shields.io/badge/Figma-F24E1E?style=flat-square&logo=Figma&logoColor=white) |
+|          사용기술          | 설명              |                                                      Badge                                                      |
+| :--------------------: | :-------------- | :-------------------------------------------------------------------------------------------------------------: |
+| **Visual Studio Code** | 코드 편집 및 개발 환경   | ![VSCode](https://img.shields.io/badge/VSCode-007ACC?style=flat-square\&logo=visualstudiocode\&logoColor=white) |
+|       **GitHub**       | 프로젝트 버전 관리 및 협업 |      ![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square\&logo=github\&logoColor=white)      |
 
-
-## 📚 프로젝트 문서 자료
-
-| 문서종류 | 파일명 | 설명 |
-| :---:| :---: | :---: |
-| 화면설계 | [화면설계.pdf](https://github.com/yeonhee001/ripo/blob/main/work/semi%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_B%ED%8C%80_01%EA%B8%B0%ED%9A%8D%2C%ED%99%94%EB%A9%B4%EC%84%A4%EA%B3%84.pdf) | 주요 페이지의 화면 구성, 사용자 흐름 등 와이어프레임 기반 설계 자료 |
-| 디자인 | [디자인.pdf](https://github.com/yeonhee001/ripo/blob/main/work/semi%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_B%ED%8C%80_02%EB%94%94%EC%9E%90%EC%9D%B8.pdf) | Figma로 작업한 디자인 시안. 색상, 폰트, UI 요소 등 자료 |
-| 발표자료 | [발표자료.pdf](https://github.com/yeonhee001/ripo/blob/main/work/semi%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_B%ED%8C%80_%EB%B0%9C%ED%91%9C%EC%9E%90%EB%A3%8C.pdf) | 팀 프로젝트 발표용 슬라이드 자료 |
-| 완료 보고서 | [완료보고서.pdf](https://github.com/yeonhee001/ripo/blob/main/work/semi%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_B%ED%8C%80_%EC%99%84%EB%A3%8C%EB%B3%B4%EA%B3%A0%EC%84%9C.pdf) | 프로젝트 진행 결과 요약 등 최종 보고 |
 
 
 ## 💾 프로젝트 저장소
