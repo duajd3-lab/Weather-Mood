@@ -204,7 +204,7 @@ WEATHER-MOOD
 * [서버 저장소 바로가기](https://github.com/yeonhee001/php-ripoServer.git)
 
 
-## 👩‍💻 이예원의 개발 상세
+# 이예원의 개발 상세
 
 ## 📑 요약
 * 담당
