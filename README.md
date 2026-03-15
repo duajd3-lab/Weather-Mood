@@ -201,7 +201,7 @@ WEATHER-MOOD
 
 ## 💾 프로젝트 저장소
 프론트엔드와 서버 소스 코드는 별도의 저장소로 분리되어있습니다.
-* [서버 저장소 바로가기](https://github.com/yeonhee001/php-ripoServer.git)
+* [서버 저장소 바로가기](https://github.com/duajd3-lab/Weather-Mood)
 
 
 # 이예원의 개발 상세
