@@ -196,7 +196,7 @@ WEATHER-MOOD
 | :---:| :---: | :---: |
 | 기획서 | [기획서.pdf](https://github.com/user-attachments/files/26004173/B.Weather.Mood.pdf) | 프로젝트의 목적, 서비스 개요, 주요 기능 및 기획 내용을 정리한 문서 |
 | 화면설계 | [화면설계.pdf](https://github.com/user-attachments/files/26004169/B.Weather.Mood.pdf) | 주요 페이지의 화면 구성, 사용자 흐름 등 와이어프레임 기반 설계 자료 |
-| 디자인 | [디자인.pdf](https://github.com/yeonhee001/ripo/blob/main/work/semi%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_B%ED%8C%80_02%EB%94%94%EC%9E%90%EC%9D%B8.pdf) | Figma로 작업한 디자인 시안. 색상, 폰트, UI 요소 등 자료 |
+| 디자인 | [디자인.pdf](https://github.com/user-attachments/files/26004457/Frame.7459.pdf)| Figma로 작업한 디자인 시안. 색상, 폰트, UI 요소 등 자료 |
 | 발표자료 | [발표자료.pdf](https://github.com/user-attachments/files/26004177/B.Weather.Mood.pdf) | 팀 프로젝트 발표용 슬라이드 자료 |
 
 
