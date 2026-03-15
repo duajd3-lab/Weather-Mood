@@ -1,4 +1,4 @@
-![Image](https://github.com/user-attachments/assets/5d476bef-5d39-4be1-804c-9f028c1cc93e)
+
 
 ## ✨ 소개
 소소한 일상을 채워주는 디자인 문구와 아이템을 소개하는 SPA 웹사이트, <b>"Ripo"</b> 입니다.
